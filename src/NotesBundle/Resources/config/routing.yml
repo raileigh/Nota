@@ -1,0 +1,8 @@
+notes_homepage:
+    path:     /
+    defaults: { _controller: NotesBundle:Default:index }
+
+notes_ayuda:
+    path:     /ayuda/{tema}
+    defaults: { _controller: NotesBundle:Default:ayuda }
+
