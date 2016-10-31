@@ -1,0 +1,11 @@
+{% extends "::base.html.twig"%}
+{% block body %}
+
+	{% for nota in notas %}
+		{{nota.fecha|date("d/m/Y H:m:i")}}<br>
+		id:{{nota.id}}<br>
+		titulo:
+		{{nota.titulo}}<br>{{nota.contenido}}<br>
+	{% endfor %}
+
+{% endblock %}
