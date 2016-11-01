@@ -1,16 +1,25 @@
 notes_homepage:
     path:     /principal
     defaults: { _controller: NotesBundle:Default:index }
+    
 
-notes_create:
-    path:     /crear/{titulo}/{contenido}
+notes_crear:
+    path:     /crear
     defaults: { _controller: NotesBundle:Default:crear }
+    methods: [POST]
 
-notes_delete:
+notes_eliminar:
     path:     /eliminar/{id}
     defaults: { _controller: NotesBundle:Default:eliminar }
+    
 
-notes_update:
-    path:     /actualizar/{id}/{titulo}/{contenido}
+notes_actualizar:
+    path:     /actualizar/{id}
     defaults: { _controller: NotesBundle:Default:actualizar }
-    # method: [POST]
+
+notes_editar:
+    path:     /editar
+    defaults: { _controller: NotesBundle:Default:editar }
+    methods: [POST]
+    
+    

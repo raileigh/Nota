@@ -1,0 +1,17 @@
+{% extends "::base.html.twig"%}
+
+{% block body %}
+ <FORM action="{{ url('notes_editar') }}" method="post">
+    
+    <LABEL>titulo: </LABEL>
+              <INPUT type="text" name="titulo" value="{{nota.titulo}}"><BR>{#el value es para mostrar la variable dentro y el name es un identificador de este input para poder recogerlorequest con el request#}
+    <LABEL>contenido: </LABEL>
+              <INPUT type="text" name="contenido" value="{{nota.contenido}}"><BR>
+    
+    <INPUT class="btn btn-default" type="submit" value="EDITAR" name="editar"><BR>
+     <INPUT type="text" hidden name="id" value="{{nota.id}}"><BR>{# para mandar un campo escondido con el valor que yo quiero en este casi el id de esta nota, pero no quiero mostrar el id al usuario#}
+    
+ </FORM>
+
+{% endblock %}
+

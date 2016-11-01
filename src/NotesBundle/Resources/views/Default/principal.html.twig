@@ -1,11 +1,30 @@
 {% extends "::base.html.twig"%}
+
 {% block body %}
+ <FORM action="{{ url('notes_crear') }}" method="post">
+    
+    <LABEL>titulo: </LABEL>
+              <INPUT type="text" name="titulo"><BR>
+    <LABEL>contenido: </LABEL>
+              <INPUT type="text" name="contenido"><BR>
+    
+    <INPUT class="btn btn-default" type="submit" value="CREAR" name="crear">
+    
+ </FORM>
+
 
 	{% for nota in notas %}
 		{{nota.fecha|date("d/m/Y H:m:i")}}<br>
 		id:{{nota.id}}<br>
 		titulo:
 		{{nota.titulo}}<br>{{nota.contenido}}<br>
+		<a href="{{ path('notes_eliminar', { id: nota.id }) }}">ELIMINAR</a>
+		<a data-toggle="modal" href="{{ path('notes_actualizar', { id: nota.id }) }}" data-target="#myModal">EDITAR</a>
+		<div id="myModal"></div>
+    	<!-- register form here -->
+		</div>
+		<br>
 	{% endfor %}
 
 {% endblock %}
+
