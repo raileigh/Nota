@@ -1,7 +1,6 @@
 notes_homepage:
     path:     /principal
     defaults: { _controller: NotesBundle:Default:index }
-    
 
 notes_crear:
     path:     /crear
@@ -21,5 +20,16 @@ notes_editar:
     path:     /editar
     defaults: { _controller: NotesBundle:Default:editar }
     methods: [POST]
+
+notes_login:
+    path:     /login
+    defaults: { _controller: NotesBundle:Default:login }
+
+notes_entrar:
+    path:     /entrar
+    defaults: { _controller: NotesBundle:Default:entrar }    
+    methods: [POST]
     
+    
+        
     
