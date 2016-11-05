@@ -19,13 +19,15 @@ class Nota
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+     private $id;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha", type="datetime")
+     *
      */
+
     private $fecha;
 
     /**
@@ -33,6 +35,7 @@ class Nota
      *
      * @ORM\Column(name="titulo", type="string", length=255)
      */
+
     private $titulo;
 
     /**
@@ -42,12 +45,20 @@ class Nota
      */
     private $contenido;
 
+    /**
+
+     * @ORM\ManyToOne(targetEntity="Usuario") 
+     * @ORM\JoinColumn(name="usuario", referencedColumnName="id", nullable=true)
+    */ 
+    private $usuario;
+
 
     /**
      * Get id
      *
      * @return integer 
      */
+
     public function getId()
     {
         return $this->id;
@@ -59,6 +70,7 @@ class Nota
      * @param \DateTime $fecha
      * @return Nota
      */
+
     public function setFecha($fecha)
     {
         $this->fecha = $fecha;
@@ -120,5 +132,28 @@ class Nota
     public function getContenido()
     {
         return $this->contenido;
+    }
+
+    /**
+     * Set usuario
+     *
+     * @param \NotesBundle\Entity\Usuario $usuario
+     * @return Nota
+     */
+    public function setUsuario(\NotesBundle\Entity\Usuario $usuario = null)
+    {
+        $this->usuario = $usuario;
+
+        return $this;
+    }
+
+    /**
+     * Get usuario
+     *
+     * @return \NotesBundle\Entity\Usuario 
+     */
+    public function getUsuario()
+    {
+        return $this->usuario;
     }
 }

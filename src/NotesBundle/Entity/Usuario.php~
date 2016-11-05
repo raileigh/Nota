@@ -101,44 +101,4 @@ class Usuario
     {
         return $this->password;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->notas = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add notas
-     *
-     * @param \NotesBundle\Entity\Nota $notas
-     * @return Usuario
-     */
-    public function addNota(\NotesBundle\Entity\Nota $notas)
-    {
-        $this->notas[] = $notas;
-
-        return $this;
-    }
-
-    /**
-     * Remove notas
-     *
-     * @param \NotesBundle\Entity\Nota $notas
-     */
-    public function removeNota(\NotesBundle\Entity\Nota $notas)
-    {
-        $this->notas->removeElement($notas);
-    }
-
-    /**
-     * Get notas
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getNotas()
-    {
-        return $this->notas;
-    }
 }

@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use NotesBundle\Entity\Nota;
-use NotesBundle\Entity\usuario;
+use NotesBundle\Entity\Usuario;
 
 
 
@@ -29,10 +29,18 @@ class DefaultController extends Controller
 		
 		$nombre = $request->request->get("nombre");// para capturar el valor del formulario por post
     	$password = $request->request->get("password");// para capturar el valor del formulario por post
-    	$usuario = $this->getDoctrine()->getRepository("NotesBundle:usuario")->findOneBy(array("nombre" => $nombre, "password" => $password));//igualo la variable usuario con el getDoctrine y este al repositorio para que me encuentre en la base de datos el nombre y el pass que el usuario le ha puesto por post desde el formulario y que lo mande a principal
-    	$notas=$this->getDoctrine()->getRepository("NotesBundle:Nota")->findOneBy(array("nombre" => $nombre, "id" => $id));//hago lo mismo con la variable $notas, porque claro yo entro al principal pero si el metodo no tiene esta linea me va a crasear porque nsi no le digo que me muestre las notas me va a dar error al mandarle al principal y no mostrar nada. y le pongo findAll para que me muestre todas las notas.
+    	$usuario = $this->getDoctrine()->getRepository("NotesBundle:Usuario")->findOneBy(array("nombre" => $nombre, "password" => $password));//igualo la variable usuario con el getDoctrine y este al repositorio para que me encuentre en la base de datos el nombre y el pass que el usuario le ha puesto por post desde el formulario y que lo mande a principal
+    	
+    	$notas = $usuario->getNotas();
 
-		return $this->render('NotesBundle:Default:principal.html.twig', array("notas"=>$notas));		
+    	 if (!$usuario)
+    	 {
+    	  return $this->render('NotesBundle:Default:login.html.twig'); 
+    	 } else { 
+
+    	 	 return $this->render('NotesBundle:Default:principal.html.twig', array("notas"=>$notas));
+    	 }
+ 	
 	}
     
 	 public function indexAction()
