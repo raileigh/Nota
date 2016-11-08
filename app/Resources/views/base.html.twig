@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}BLOCK DE NOTAS{% endblock %}</title>
-        
-            <script src="{{ asset('bundles/framework/js/jquery-2.2.0.js') }}"></script>
             <link href="{{ asset('bundles/framework/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-            
+            <link href="{{ asset('bundles/framework/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
             <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+             <meta charset="UTF-8"/>
+            <script src="{{ asset('bundles/framework/js/jquery-2.2.0.js') }}"></script>
+  
     </head>
 
-    <body>
+    <body background="{{ asset('bundles/framework/images/fondo.jpg') }}" style=".style" class="mifondo">
         {% block body %}{% endblock %}
-        
     </body>
 </html>
