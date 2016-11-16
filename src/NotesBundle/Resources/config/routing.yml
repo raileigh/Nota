@@ -29,6 +29,15 @@ notes_entrar:
     path:     /entrar
     defaults: { _controller: NotesBundle:Default:entrar }    
     methods: [POST]
+
+notes_registrar:
+    path:     /registrar
+    defaults: { _controller: NotesBundle:Default:registrar }
+    methods: [POST]
+
+notes_cerrar:
+    path:     /cerrar
+    defaults: { _controller: NotesBundle:Default:cerrar }    
     
     
         

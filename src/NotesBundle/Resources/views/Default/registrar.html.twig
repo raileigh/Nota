@@ -1,7 +1,7 @@
 {% extends "::base.html.twig"%}
 
 {% block body %}
-  <form action="{{ url('notes_entrar') }}" method="post">
+  <form action="{{ url('notes_registrar') }}" method="post">
     <div class="form-group, text-center, col-xs-12" style="padding-top:10%; text-align:center">
       <div class="form-group, text-center, col-xs-12" style="padding-left:30%">
         <label for="exampleInputName2" class="control-label, col-xs-2" style="margin-top:5px">Nombre</label>
@@ -15,10 +15,7 @@
           <input type="password" class="form-control" name="password" placeholder="Contraseña">
         </div>
       </div>
+       <INPUT class="btn btn-default" style="margin-top:10px" type="submit" value="REGISTRAR" name="registrar"><BR>
     </div>
-      <div style="padding-left:43%">
-      <INPUT class="btn btn-default" style="margin-top:10px" type="submit" value="ENTRAR" name="entrar">
-      <INPUT class="btn btn-default" style="margin-top:10px" type="submit" value="REGISTRAR" name="registrar">
-      </div>
   </form>
 {% endblock %}

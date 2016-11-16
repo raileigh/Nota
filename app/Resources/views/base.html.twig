@@ -6,10 +6,11 @@
             <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
              <meta charset="UTF-8"/>
             <script src="{{ asset('bundles/framework/js/jquery-2.2.0.js') }}"></script>
-  
-    </head>
+            <script src="{{ asset('bundles/framework/js/bootstrap.min.js') }}"></script>
 
-    <body background="{{ asset('bundles/framework/images/fondo.jpg') }}" style=".style" class="mifondo">
+   </head>
+
+    <body background="{{ asset('bundles/framework/images/fondo.jpg') }}" class="mifondo">
         {% block body %}{% endblock %}
     </body>
 </html>
