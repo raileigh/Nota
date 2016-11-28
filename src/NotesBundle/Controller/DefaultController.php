@@ -39,21 +39,26 @@ class DefaultController extends Controller
 		$nombre = $request->request->get("nombre");// para capturar el valor del formulario por post
     	$password = $request->request->get("password");// para capturar el valor del formulario por post
     	$usuario = $this->getDoctrine()->getRepository("NotesBundle:Usuario")->findOneByNombre($nombre);//igualo la variable usuario con el getDoctrine y este al repositorio para que me encuentre en la base de datos el nombre que el usuario le ha puesto por post desde el formulario y que lo mande a principal
+        
+        if (!$usuario){
 
-    	$pass = $usuario->getPassword();//creo la variable pass y la igualo a la variable usuario que tiene sus funciones en esete caso recoger el password de la base de datos encriptada.
+           return $this->render('NotesBundle:Default:registrar.html.twig'); 
 
-    	 if (!$usuario || password_verify($password, $pass)==false )// este if es para si no existe el usuario  o mediante password_verify me compare el objeto password introducido por el usuario y el objeto pass que es el password encriptado de la base de datos y si no son las mismas me mande a registrar.
-    	 {
-    	 return $this->render('NotesBundle:Default:registrar.html.twig'); 
+    	 } 
 
-    	 } else {// si no, es decir si el usuario existe o las pass son la misma de cree la sesión meta el id al usuario en esa sesion y me mande al principal.
+         $pass = $usuario->getPassword();
+         if(password_verify($password, $pass)==false){
 
-    	 	$session = $this->getRequest()->getSession(); //establece la sesión
-    	 	$session->set("id", $usuario->getId());// y meteme el id del id del usuario en esa sesión y mandame a principal
+            return $this->render('NotesBundle:Default:registrar.html.twig'); 
+           
+    	 } elseif($usuario || password_verify($password, $pass)){
 
-    	 	 return $this->redirectToRoute('notes_homepage');
-    	 }
+             $session = $this->getRequest()->getSession(); //establece la sesión
+             $session->set("id", $usuario->getId());// y meteme el id del id del usuario en esa sesión y mandame a principal
 
+             return $this->redirectToRoute('notes_homepage');
+
+         }
 	}
 
 
