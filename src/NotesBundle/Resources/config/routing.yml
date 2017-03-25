@@ -38,6 +38,11 @@ notes_registrar:
 notes_cerrar:
     path:     /cerrar
     defaults: { _controller: NotesBundle:Default:cerrar }    
+
+
+notes_index:
+    path:     /
+    defaults: { _controller: NotesBundle:Default:index }
     
     
         
